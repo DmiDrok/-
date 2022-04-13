@@ -24,6 +24,11 @@ class Window:
     ##Метод отрисовки виджетов
     def _widgets_draw(self):
         def listen_keys(event):
+            ##Если был нажат Enter - выполняем функцию show_res
+            if event.char == "\r":
+                show_res()
+                return True
+
             ##Метод .focus_get() возвращает элемент с фокусом
             if event.char in "0123456789": ##Если значение нажатой кнопки в строке цифр
                 self.root.focus_get().delete(len(self.root.focus_get().get())-1, tk.END)
@@ -39,13 +44,13 @@ class Window:
             #isdigit = lambda num: num.isdigit() ##Лямбда функция с целью укоротить код
             num_first = entry_number_first.get() ##Получаем первое число ОТ
             num_second = entry_number_second.get() ##Получаем второе число ДО
-
+            print(num_first, num_second, len(num_first), len(num_second))
             ##Проверка на целочисленность данных
             #if not isdigit(num_first) or not isdigit(num_second):
                 #messagebox.showerror("Ошибка", "Необходимо вводить целые числа")
 
             ##Если ОТ будет больше ДО
-            if num_first > num_second:
+            if num_first > num_second and len(num_first) > 0 and len(num_second) > 0:
                 res = randint(int(num_second), int(num_first))
                 messagebox.showinfo("Уведомление", str(res))
             else:
