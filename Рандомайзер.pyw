@@ -16,7 +16,7 @@ class Window:
         self.root.resizable(*resizable)
         self.root["background"] = self.BACKGROUND
         self.root.configure(pady=10, padx=100)
-        self.root.iconbitmap(r"C:\Users\user\Desktop\Рандомайзер\icons\icon.ico") ##Устанавливаем иконку
+        #self.root.iconbitmap(r"C:\Users\user\Desktop\Рандомайзер\icons\icon.ico") ##Устанавливаем иконку
 
         self._widgets_draw() ##Рисуем виджеты
         self._loop_window() ##Циклим окно
